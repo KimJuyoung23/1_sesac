@@ -1,0 +1,20 @@
+# 가상환경 만드는 방법
+conda create --name {가상환경 이름}
+conda create --name {가상환경 이름} python={파이썬 버전}
+# 가상환경 활성화하기
+conda activate {가상환경 이름}
+# 가상환경 제거하는 방법
+conda env remove --name {가상환경 이름}
+conda remove --name {가상환경 이름} --all
+# 가상환경 비활성화하기
+conda deactivate
+
+# SBA 용산2기 0904 실행 명령어
+# ai2 이름의 python 3.8버전으로 가상환경 생성
+conda create -n ai2 python=3.8
+
+# 가상환경 리스트 확인
+conda env list
+
+# 가상환경 활성화
+conda activate ai2
