@@ -2,27 +2,22 @@ import matplotlib.pyplot as plt
 from sklearn.datasets import load_iris
 import numpy as np
 
-figsize = (10, 10)
+# 데이터 불러오기
 iris = load_iris()
+iris_X, iris_y = iris.data, iris.target
+feature_names = iris.feature_names
+species = iris.target_names
 
-feature_names = iris.feature_names # 특징  # type: ignore
-n_feature = len(feature_names) # 4
-species = iris.target_names # 종 # type: ignore
-n_species = len(species) # 3
-iris_X, iris_y = iris.data, iris.target # 데이터, 종 # type: ignore
-iris_X = np.transpose(iris_X) # transpose
-data = iris_X.reshape(n_feature, n_species, -1) # (특징, 종, 데이터)
+# 그래프 설정
+fig, axes = plt.subplots(2, 2, figsize=(10, 10))
 
-list_n_species = [i for i in range(n_species)] # xposition, xticks 위한 리스트
-
-fig, axes = \
-    plt.subplots(2, 2, figsize = figsize) # 2 * 2 subplots 
-for ax_idx, ax in enumerate(axes.flat):
-    ax.violinplot([data[ax_idx][i] for i in list_n_species], positions=list_n_species) # type: ignore # 
-    ax.set_title(feature_names[ax_idx], fontsize=10) # type: ignore
-    ax.set_xticks(list_n_species) # type: ignore
-    ax.set_xticklabels(species) # type: ignore
-    ax.tick_params(labelsize=10) # type: ignore
-    ax.grid() # type: ignore
+for ax, feature_name in zip(axes.flat, feature_names):
+    data = [iris_X[iris_y == species_idx][:, species_idx] for species_idx in range(len(species))]
+    ax.violinplot(data)
+    ax.set_title(feature_name, fontsize=10)
+    ax.set_xticks([1, 2, 3])
+    ax.set_xticklabels(species)
+    ax.tick_params(labelsize=10)
+    ax.grid()
 
 plt.show()
