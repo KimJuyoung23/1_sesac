@@ -1,0 +1,15 @@
+Index,age,income,married,credit_score,register_golf_club
+1,young,high,no,normal,no
+2,young,high,no,good,no
+3,middle,high,no,normal,yes
+4,old,medium,no,normal,yes
+5,old,low,yes,normal,yes
+6,old,low,yes,good,no
+7,middle,low,yes,good,yes
+8,young,medium,no,normal,no
+9,young,low,yes,normal,yes
+10,old,medium,yes,normal,yes
+11,young,medium,yes,good,yes
+12,middle,medium,no,good,yes
+13,middle,high,yes,normal,yes
+14,old,medium,no,good,no
